@@ -1,5 +1,5 @@
 <div class="container">
-  <button type="button" class="btn btn-primary mb-3">New product</button>
+  <a [routerLink]="['/product-new']"><button type="button" class="btn btn-primary mb-3">New product</button></a> 
   <table class="table">
     <thead>
       <tr>
@@ -20,9 +20,11 @@
         <td>{{product.ageRestriction}}</td>
         <td>{{product.company}}</td>
         <td>{{product.price}}</td>
-        <td>              
-          <button class="btn"><i class="fa fa-trash-o"></i></button>
-          <button class="btn"><i class="fa fa-edit"></i> </button>
+        <td>  
+          <a [routerLink]="['/product-edit', product.id]">
+            <button class="btn"><i class="fa fa-edit"></i> </button>          
+          </a>            
+          <button class="btn" (click)="deleteProduct(product.id)"><i class="fa fa-trash-o"></i></button>
         </td>
       </tr>
     </tbody>

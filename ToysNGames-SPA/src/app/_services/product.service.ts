@@ -17,7 +17,21 @@ getProducts() {
   return this.http.get<Product[]>(this.baseUrl);
   }
 
-getProduct(id)   {
+getProduct(id: number)   {
   return this.http.get<Product>(this.baseUrl + id);
+}
+
+addProduct(product: Product) {
+  return this.http.post(this.baseUrl, product);
+}
+
+deleteProduct(id) { 
+  return this.http.delete(this.baseUrl + id);
+}
+
+editProduct(id: number, product: Product) {
+  console.log(id);
+  console.log(product)
+  return this.http.put<Product>(this.baseUrl + id, product);
 }
 }
