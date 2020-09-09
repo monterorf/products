@@ -1,6 +1,9 @@
 <div class="container">
   <a [routerLink]="['/product-new']"><button type="button" class="btn btn-primary mb-3">New product</button></a> 
-  <table class="table">
+  <div *ngIf="products?.length === 0">
+    <p>No products yet... click on new product to add one!</p>
+  </div>  
+  <table class="table" *ngIf="products?.length > 0">
     <thead>
       <tr>
         <th scope="col">Id</th>
